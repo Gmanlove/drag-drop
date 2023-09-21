@@ -4,8 +4,8 @@ import DraggableImage from "./DraggableImage";
 
 const DraggableGallery = ({ images }) => {
   const [galleryImages, setGalleryImages] = useState(images);
-  const [draggedItem, setDraggedItem] = useState(null);
-  const [draggedOverItem, setDraggedOverItem] = useState(null);
+  const [ setDraggedItem] = useState(null);
+  const [ setDraggedOverItem] = useState(null);
 
   const [, ref] = useDrop({
     accept: "IMAGE",
