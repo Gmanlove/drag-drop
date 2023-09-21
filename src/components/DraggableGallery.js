@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDrop } from 'react-dnd';
-import DraggableImage from './DraggableImage';
+import React, { useState } from "react";
+import { useDrop } from "react-dnd";
+import DraggableImage from "./DraggableImage";
 
 const DraggableGallery = ({ images }) => {
   const [galleryImages, setGalleryImages] = useState(images);
@@ -8,13 +8,17 @@ const DraggableGallery = ({ images }) => {
   const [draggedOverItem, setDraggedOverItem] = useState(null);
 
   const [, ref] = useDrop({
-    accept: 'IMAGE',
+    accept: "IMAGE",
     drop: (item) => {
       const draggedImage = item.image;
-      const updatedImages = galleryImages.filter((image) => image.id !== draggedImage.id);
+      const updatedImages = galleryImages.filter(
+        (image) => image.id !== draggedImage.id
+      );
 
       // Find the index where the image was dropped
-      const dropIndex = images.indexOf(images.find((image) => image.id === draggedImage.id));
+      const dropIndex = images.indexOf(
+        images.find((image) => image.id === draggedImage.id)
+      );
 
       updatedImages.splice(dropIndex, 0, draggedImage);
       setGalleryImages(updatedImages);

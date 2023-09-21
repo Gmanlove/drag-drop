@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { images } from '../data/images';
+import React, { useState, useEffect } from "react";
+import { images } from "../data/images";
 
 const Gallery = () => {
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [filteredImages, setFilteredImages] = useState(images);
 
   useEffect(() => {
@@ -15,15 +15,18 @@ const Gallery = () => {
   }, []);
 
   const handleDragStart = (e, index) => {
-    e.dataTransfer.setData('index', index.toString());
+    e.dataTransfer.setData("index", index.toString());
   };
 
   const handleDrop = (e, dropIndex) => {
     e.preventDefault();
-    const draggedIndex = parseInt(e.dataTransfer.getData('index'), 10);
+    const draggedIndex = parseInt(e.dataTransfer.getData("index"), 10);
 
     const updatedImages = [...filteredImages];
-    [updatedImages[draggedIndex], updatedImages[dropIndex]] = [updatedImages[dropIndex], updatedImages[draggedIndex]];
+    [updatedImages[draggedIndex], updatedImages[dropIndex]] = [
+      updatedImages[dropIndex],
+      updatedImages[draggedIndex],
+    ];
 
     setFilteredImages(updatedImages);
   };
@@ -34,7 +37,9 @@ const Gallery = () => {
 
   useEffect(() => {
     const filtered = images.filter((image) =>
-      image.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+      image.tags.some((tag) =>
+        tag.toLowerCase().includes(searchQuery.toLowerCase())
+      )
     );
     setFilteredImages(filtered);
   }, [searchQuery]);
@@ -45,7 +50,7 @@ const Gallery = () => {
         <input
           type="text"
           className="form-control"
-          placeholder="Search by tags..."
+          placeholder="Search image by tags..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -67,11 +72,12 @@ const Gallery = () => {
               onDragOver={handleDragOver}
             >
               <div className="card">
-                <div
-                  draggable
-                  onDragStart={(e) => handleDragStart(e, index)}
-                >
-                  <img src={image.url} alt={image.title} className="card-img-top" />
+                <div draggable onDragStart={(e) => handleDragStart(e, index)}>
+                  <img
+                    src={image.url}
+                    alt={image.title}
+                    className="card-img-top"
+                  />
                 </div>
                 <div className="card-body">
                   <h5 className="card-title">{image.title}</h5>

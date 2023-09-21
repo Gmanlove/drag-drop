@@ -8,7 +8,7 @@ const firebaseConfig = {
   storageBucket: "drag-drop-d3e32.appspot.com",
   messagingSenderId: "268313867882",
   appId: "1:268313867882:web:7cbaba1e36fabf978dbc13",
-  measurementId: "G-GNBXQN4XGY"
+  measurementId: "G-GNBXQN4XGY",
 };
 
 const app = initializeApp(firebaseConfig);

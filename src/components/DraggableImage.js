@@ -1,17 +1,19 @@
-import React from 'react';
-import { useDrag } from 'react-dnd';
+import React from "react";
+import { useDrag } from "react-dnd";
 
 const DraggableImage = ({ image, setDraggedItem }) => {
   const [{ isDragging }, ref] = useDrag({
-    type: 'IMAGE',
+    type: "IMAGE",
     item: { image },
   });
 
   return (
     <div
       ref={ref}
-      className={`card draggable-image ${isDragging ? 'border border-danger shadow' : ''}`}
-      style={{ opacity: isDragging ? 0.7 : 1, cursor: 'move' }}
+      className={`card draggable-image ${
+        isDragging ? "border border-danger shadow" : ""
+      }`}
+      style={{ opacity: isDragging ? 0.7 : 1, cursor: "move" }}
       onClick={() => setDraggedItem(image)}
     >
       <img src={image.url} alt={image.title} className="card-img-top" />

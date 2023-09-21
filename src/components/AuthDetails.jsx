@@ -32,15 +32,27 @@ const AuthDetails = () => {
   };
 
   return (
-    <div>
-      {authUser ? (
-        <>
-          <p>{`Signed In as ${authUser.email}`}</p>
-          <button onClick={userSignOut}>Sign Out</button>
-        </>
-      ) : (
-        <p>Signed Out</p>
-      )}
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          {authUser ? (
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">{`Signed In as ${authUser.email}`}</h5>
+                <button className="btn btn-primary" onClick={userSignOut}>
+                  Sign Out
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="card">
+              <div className="card-body">
+                <p className="card-text">Signed Out</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

@@ -19,23 +19,35 @@ const SignIn = () => {
   };
 
   return (
-    <div className="sign-in-container">
-      <form onSubmit={signIn}>
-        <h1>Log In to your Account</h1>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-        <input
-          type="password"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <button type="submit">Log In</button>
-      </form>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <form onSubmit={signIn} className="bg-light p-4 rounded">
+            <h1 className="mb-4">Log In to your Account</h1>
+            <div className="mb-3">
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Log In
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
